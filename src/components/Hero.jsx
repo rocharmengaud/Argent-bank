@@ -1,7 +1,6 @@
 import '../styles/hero.css';
 
 export const Hero = (props) => {
-  console.log(props);
   const style = {
     backgroundImage: `url('${props.img}')`,
   };

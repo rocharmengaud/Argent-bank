@@ -1,16 +1,19 @@
 import '../styles/navbar.css';
-export const Navbar = (props) => {
+import { Link } from 'react-router-dom';
+
+import ArgentBankLogo from '../assets/argentBankLogo.png';
+
+export const Navbar = () => {
   return (
     <nav class="main-nav">
-      <a class="main-nav-logo" href="./index.html">
-        <img class="main-nav-logo-image" src={props.imgSrc} alt="Argent Bank Logo" />
+      <Link to="/" class="main-nav-logo">
+        <img class="main-nav-logo-image" src={ArgentBankLogo} alt="Argent Bank Logo" />
         <h1 class="sr-only">Argent Bank</h1>
-      </a>
+      </Link>
       <div>
-        <a class="main-nav-item" href="./sign-in.html">
-          <i class="fa fa-user-circle"></i>
-          Sign In
-        </a>
+        <Link to="/sign-in" class="main-nav-item">
+          <i class="fa fa-user-circle"></i>Sign in
+        </Link>
       </div>
     </nav>
   );
