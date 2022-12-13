@@ -1,8 +1,9 @@
+import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 
 export const SignIn = () => {
   return (
-    <>
+    <body>
       <Navbar />
       <main class="main bg-dark">
         <section class="sign-in-content">
@@ -31,9 +32,7 @@ export const SignIn = () => {
           </form>
         </section>
       </main>
-      <footer class="footer">
-        <p class="footer-text">Copyright 2020 Argent Bank</p>
-      </footer>
-    </>
+      <Footer />
+    </body>
   );
 };
