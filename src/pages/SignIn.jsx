@@ -5,7 +5,7 @@ import '../styles/signin.css';
 
 export const SignIn = () => {
   return (
-    <>
+    <body>
       <Navbar />
       <main className="main bg-dark">
         <section className="sign-in-content">
@@ -35,6 +35,6 @@ export const SignIn = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </body>
   );
 };

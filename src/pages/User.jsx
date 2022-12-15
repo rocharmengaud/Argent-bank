@@ -3,7 +3,7 @@ import { Footer } from '../components/Footer';
 
 export const User = () => {
   return (
-    <>
+    <body>
       <Navbar />
       <main className="main bg-dark">
         <div className="header">
@@ -47,6 +47,6 @@ export const User = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </body>
   );
 };
