@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { getUserProfileData } from '../services/apidata';
+
 import '../styles/main.css';
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
@@ -10,14 +13,26 @@ import iconMoney from '../assets/icon-money.png';
 import iconSecurity from '../assets/icon-security.png';
 
 export const Homepage = () => {
+  const [userData, setUserData] = useState();
+
+  getUserProfileData();
+
+  React.useEffect(() => {
+    getUserProfileData()
+      .then((data) => setUserData(data))
+      .catch('error');
+  }, []);
+
+  console.log(userData);
+
   return (
-    <body>
+    <>
       <Navbar />
       <main>
         <Hero img={BankTree} />
         <Features img1={iconChat} img2={iconMoney} img3={iconSecurity} />
       </main>
       <Footer />
-    </body>
+    </>
   );
 };
