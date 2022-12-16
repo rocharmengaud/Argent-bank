@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { getUserLoginData } from '../services/apidata';
+import React from 'react';
+// import { getUserLoginData, getUserProfileData } from '../services/apidata';
 
 import '../styles/main.css';
 import { Navbar } from '../components/Navbar';
@@ -13,16 +13,6 @@ import iconMoney from '../assets/icon-money.png';
 import iconSecurity from '../assets/icon-security.png';
 
 export const Homepage = () => {
-  const [userLoginData, setUserLoginData] = useState();
-
-  getUserLoginData();
-
-  React.useEffect(() => {
-    getUserLoginData()
-      .then((data) => setUserLoginData(data))
-      .catch('error');
-  }, []);
-
   return (
     <>
       <Navbar />

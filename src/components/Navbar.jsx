@@ -12,6 +12,8 @@ export const Navbar = () => {
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
       <div>
+        {/* visible seulement si on a pas de token dans le localStorage */}
+        {/* ternaire si j'ai un Token dans mon localStorage alors affiche sign out sinon affiche sign in */}
         <Link to="/user/login" className="main-nav-item">
           <i className="fa fa-user-circle"></i>Sign In
         </Link>

@@ -1,7 +1,8 @@
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
-
+import { getUserProfileData } from '../services/apidata';
 export const User = () => {
+  getUserProfileData();
   return (
     <body>
       <Navbar />
