@@ -8,11 +8,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        {/* accessible seulement si il n'y a pas de token actif */}
-        <Route path="/user/login" element={<SignIn />} />
         <Route path="/" element={<Homepage />} />
-        {/* accessible si l'utilisateur a un token actif dans le localStorage */}
-        <Route path="/user/profile" element={<User />} />
+        {/* user/login sera accessible seulement si il n'y a pas de token actif et inversement*/}
+        {localStorage.getItem('Token') ? <Route path="/user/profile" element={<User />} /> : <Route path="/user/login" element={<SignIn />} />}
       </Routes>
     </div>
   );
