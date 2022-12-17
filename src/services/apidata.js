@@ -22,21 +22,23 @@ export const postUserLoginData = async (email, password) => {
 export const getUserProfileData = async () => {
   // le await ici force le fetch à attendre que la promesse sois terminée
   const response = await fetch(`http://localhost:3001/api/v1/user/profile`, {
-    method: 'POST',
+    method: 'GET',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       // voir ligne 17
       Authorization: 'Bearer ' + localStorage.getItem('Token'),
     },
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log('Success:', result);
-    })
-    .catch((error) => {
-      console.log('Error:', error);
-    });
-  const { data } = await response.json();
-  return data;
+  });
+  // .then((response) => response.json())
+  // .then((result) => {
+  //   console.log('Success:', result);
+  // })
+  // .catch((error) => {
+  //   console.log('Error:', error);
+  // });
+  const jsonResponse = await response.json();
+  if (jsonResponse.status === 200) {
+    return jsonResponse;
+  }
 };
