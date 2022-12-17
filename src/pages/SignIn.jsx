@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
-import { getUserLoginData } from '../services/apidata';
+import { useNavigate } from 'react-router-dom';
+
+import { postUserLoginData } from '../services/apidata';
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 
 import '../styles/signin.css';
 
 export const SignIn = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   const login = async (e) => {
     e.preventDefault();
-    await getUserLoginData(email, password);
-    // 'Token' est récupéré depuis le localStorage (voir getUserLoginData)
+    await postUserLoginData(email, password);
+    // 'Token' est récupéré depuis le localStorage (voir getUserLoginData() dans apidata.js)
     if (localStorage.getItem('Token')) {
-      console.log('code ton navigate');
+      navigate('/user/profile');
     } else {
       alert('Vos identifiants de connexion sont incorrects');
     }

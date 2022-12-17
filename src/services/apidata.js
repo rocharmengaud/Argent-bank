@@ -1,4 +1,4 @@
-export const getUserLoginData = async (email, password) => {
+export const postUserLoginData = async (email, password) => {
   // le await ici force le fetch à attendre que la promesse sois terminée
   const response = await fetch(`http://localhost:3001/api/v1/user/login`, {
     method: 'POST',
@@ -12,7 +12,7 @@ export const getUserLoginData = async (email, password) => {
     }),
   });
   const jsonResponse = await response.json();
-  console.log(jsonResponse);
+  // console.log(jsonResponse);
   if (jsonResponse.status === 200) {
     // If the requirement is met, the 'Token' will be stored in localStorage
     localStorage.setItem('Token', jsonResponse.body.token);
