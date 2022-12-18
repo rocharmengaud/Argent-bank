@@ -3,6 +3,7 @@ import { Footer } from '../components/Footer';
 import { getUserProfileData } from '../services/apidata';
 export const User = () => {
   getUserProfileData();
+  // utilisation des state et de useEffect, avec utilisation du loader avec le ternaire pour les data comme le projet précédent
   return (
     <body>
       <Navbar />

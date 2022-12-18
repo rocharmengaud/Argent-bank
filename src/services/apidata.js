@@ -16,13 +16,16 @@ export const postUserLoginData = async (email, password) => {
   if (jsonResponse.status === 200) {
     // If the requirement is met, the 'Token' will be stored in localStorage
     localStorage.setItem('Token', jsonResponse.body.token);
+    // On crée un nouvel evenement manuellement au moment de la réponse 200
+    // permet de mettre à jour le Token dans App.js
+    window.dispatchEvent(new Event('storage'));
   }
 };
 
 export const getUserProfileData = async () => {
   // le await ici force le fetch à attendre que la promesse sois terminée
   const response = await fetch(`http://localhost:3001/api/v1/user/profile`, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -30,15 +33,10 @@ export const getUserProfileData = async () => {
       Authorization: 'Bearer ' + localStorage.getItem('Token'),
     },
   });
-  // .then((response) => response.json())
-  // .then((result) => {
-  //   console.log('Success:', result);
-  // })
-  // .catch((error) => {
-  //   console.log('Error:', error);
-  // });
+
   const jsonResponse = await response.json();
   if (jsonResponse.status === 200) {
-    return jsonResponse;
+    console.log(jsonResponse);
+    return jsonResponse.body;
   }
 };
