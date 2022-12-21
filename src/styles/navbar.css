@@ -5,12 +5,13 @@
   padding: 5px 20px;
 }
 
-.main-nav a {
+.main-nav-item {
   font-weight: bold;
   color: #2c3e50;
+  cursor: pointer;
 }
 
-.main-nav a.router-link-exact-active {
+.main-nav-item .router-link-exact-active {
   color: #42b983;
 }
 

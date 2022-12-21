@@ -16,7 +16,7 @@ export const User = () => {
       .catch(setError);
   }, []);
 
-  console.log(userData?.firstName);
+  // console.log(userData?.firstName);
 
   if (error) {
     return <div>Pas de data</div>;
