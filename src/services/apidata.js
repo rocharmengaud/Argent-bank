@@ -40,3 +40,32 @@ export const getUserProfileData = async () => {
     return jsonResponse.body;
   }
 };
+
+export const updateProfileData = async (firstName, lastName) => {
+  // le await ici force le fetch à attendre que la promesse sois terminée
+  const response = await fetch(`http://localhost:3001/api/v1/user/profile`, {
+    method: 'PUT',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      // voir ligne 17
+      Authorization: 'Bearer ' + localStorage.getItem('Token'),
+    },
+    body: JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
+    }),
+  });
+
+  const jsonResponse = await response.json();
+  if (jsonResponse.status === 400 || jsonResponse.status === 500) {
+    return jsonResponse.message;
+  }
+
+  // Si on avait besoin des informations en response de l'appel:
+  // const jsonResponse = await response.json();
+  // if (jsonResponse.status === 200) {
+  //   console.log(jsonResponse);
+  //   return jsonResponse.body;
+  // }
+};

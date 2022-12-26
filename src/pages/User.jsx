@@ -5,15 +5,20 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { getUserProfileData } from '../services/apidata';
 import { Loader } from '../components/Loader';
+import { EditName } from '../components/EditName';
 
 export const User = () => {
   const [userData, setUserData] = useState();
   const [error, setError] = useState();
 
-  React.useEffect(() => {
+  const fetchUserData = () => {
     getUserProfileData()
       .then((data) => setUserData(data))
       .catch(setError);
+  };
+
+  React.useEffect(() => {
+    fetchUserData();
   }, []);
 
   // console.log(userData?.firstName);
@@ -34,7 +39,7 @@ export const User = () => {
                 <br />
                 {userData.firstName + ' ' + userData.lastName + '!'}
               </h1>
-              <button className="edit-button">Edit Name</button>
+              <EditName firstName={userData.firstName} lastName={userData.lastName} onSave={fetchUserData} />
             </div>
             <h2 className="sr-only">Accounts</h2>
             <section className="account">
