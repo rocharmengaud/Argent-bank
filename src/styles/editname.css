@@ -1,0 +1,40 @@
+.edit-container {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.edit-container button {
+  padding: 0.5rem 2rem;
+  background: #fff;
+  border: 1px solid #4800ff;
+  color: #4800ff;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
+.edit-container button:hover {
+  background: #4800ff;
+  color: #fff;
+}
+
+.first-container,
+.second-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.second-container {
+  align-items: flex-start;
+}
+
+.firstName,
+.lastName {
+  padding: 0.25rem;
+  border: 1px solid #fff;
+  border-radius: 0.25rem;
+}

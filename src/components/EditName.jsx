@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { updateProfileData } from '../services/apidata';
+import '../styles/editname.css';
 
 export const EditName = (props) => {
   const [error, setError] = useState();
@@ -8,7 +9,7 @@ export const EditName = (props) => {
   const [lastName, setLastName] = useState();
   const [isShown, setIsShown] = useState(false);
 
-  const closeComponent = () => {
+  const toggleComponent = () => {
     // toggle shown state
     setIsShown(!isShown);
   };
@@ -33,20 +34,20 @@ export const EditName = (props) => {
 
   return (
     <>
-      <button className="edit-button" onClick={closeComponent}>
+      <button className="edit-button" onClick={toggleComponent}>
         Edit Name
       </button>
       {isShown && (
         <div className="edit-container">
-          <div className="name-container">
+          <div className="first-container">
             <input className="firstName" type={'text'} placeholder={props.firstName} onChange={changeFirstName}></input>
-            <input className="lastName" type={'text'} placeholder={props.lastName} onChange={changeLastName}></input>
-          </div>
-          <div className="buttons-container">
             <button type="button" onClick={saveNames}>
               Save
             </button>
-            <button type="button" onClick={closeComponent}>
+          </div>
+          <div className="second-container">
+            <input className="lastName" type={'text'} placeholder={props.lastName} onChange={changeLastName}></input>
+            <button type="button" onClick={toggleComponent}>
               Cancel
             </button>
           </div>
