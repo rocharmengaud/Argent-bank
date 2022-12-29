@@ -32,7 +32,7 @@ export const SignIn = () => {
   };
 
   return (
-    <body>
+    <div className="content">
       <Navbar />
       <main className="main bg-dark">
         <section className="sign-in-content">
@@ -40,16 +40,16 @@ export const SignIn = () => {
           <h1>Sign In</h1>
           <form onSubmit={login}>
             <div className="input-wrapper">
-              <label for="username">Username</label>
+              <label htmlFor="username">Username</label>
               <input type="text" id="username" onChange={handleEmailChange} />
             </div>
             <div className="input-wrapper">
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
               <input type="password" id="password" onChange={handlePasswordChange} />
             </div>
             <div className="input-remember">
               <input type="checkbox" id="remember-me" />
-              <label for="remember-me">Remember me</label>
+              <label htmlFor="remember-me">Remember me</label>
             </div>
             <button type="submit" className="sign-in-button">
               Sign In
@@ -58,6 +58,6 @@ export const SignIn = () => {
         </section>
       </main>
       <Footer />
-    </body>
+    </div>
   );
 };

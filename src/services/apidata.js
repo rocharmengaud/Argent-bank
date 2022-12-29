@@ -20,6 +20,14 @@ export const postUserLoginData = async (email, password) => {
     // permet de mettre à jour le Token dans App.js
     window.dispatchEvent(new Event('storage'));
   }
+
+  if (jsonResponse.status === 400) {
+    return 'Invalid Fields';
+  }
+
+  if (jsonResponse.status === 500) {
+    return 'Internal Server Error';
+  }
 };
 
 export const getUserProfileData = async () => {
@@ -38,6 +46,14 @@ export const getUserProfileData = async () => {
   if (jsonResponse.status === 200) {
     console.log(jsonResponse);
     return jsonResponse.body;
+  }
+
+  if (jsonResponse.status === 400) {
+    return 'Invalid Fields';
+  }
+
+  if (jsonResponse.status === 500) {
+    return 'Internal Server Error';
   }
 };
 

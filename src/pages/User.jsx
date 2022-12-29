@@ -29,7 +29,7 @@ export const User = () => {
 
   return (
     <>
-      <body>
+      <div className="content">
         <Navbar />
         {userData ? (
           <main className="main bg-dark">
@@ -77,7 +77,7 @@ export const User = () => {
           <Loader />
         )}
         <Footer />
-      </body>
+      </div>
     </>
   );
 };
