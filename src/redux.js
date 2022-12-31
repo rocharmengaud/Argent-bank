@@ -2,13 +2,12 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const editNameSlice = createSlice({
   name: 'editName',
-
   initialState: {
     active: false,
   },
 
   reducers: {
-    useToggle: (state) => {
+    setToggle: (state) => {
       state.active = !state.active;
     },
   },
@@ -19,3 +18,9 @@ export const store = configureStore({
     editName: editNameSlice.reducer,
   },
 });
+
+export const createToggle = () => {
+  return {
+    type: 'editName/setToggle',
+  };
+};

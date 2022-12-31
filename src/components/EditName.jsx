@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { createToggle } from '../redux';
 
 import { updateProfileData } from '../services/apidata';
 import '../styles/editname.css';
@@ -42,14 +43,7 @@ export const EditName = (props) => {
   return (
     <>
       {/* <button className="edit-button" onClick={toggleComponent}> */}
-      <button
-        className="edit-button"
-        onClick={() =>
-          dispatch({
-            type: 'editName/useToggle',
-          })
-        }
-      >
+      <button className="edit-button" onClick={() => dispatch(createToggle())}>
         Edit Name
       </button>
       {toggle.editName.active && (
@@ -63,14 +57,7 @@ export const EditName = (props) => {
           <div className="second-container">
             <input className="lastName" type={'text'} placeholder={props.lastName} onChange={changeLastName}></input>
             {/* <button type="button" onClick={toggleComponent}> */}
-            <button
-              type="button"
-              onClick={() =>
-                dispatch({
-                  type: 'editName/useToggle',
-                })
-              }
-            >
+            <button type="button" onClick={() => dispatch(createToggle())}>
               Cancel
             </button>
           </div>
