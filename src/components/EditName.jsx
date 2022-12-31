@@ -1,18 +1,23 @@
 import React from 'react';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { updateProfileData } from '../services/apidata';
 import '../styles/editname.css';
 
 export const EditName = (props) => {
+  const toggle = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   const [error, setError] = useState();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
-  const [isShown, setIsShown] = useState(false);
+  // const [isShown, setIsShown] = useState(false);
 
-  const toggleComponent = () => {
-    // toggle shown state
-    setIsShown(!isShown);
-  };
+  // const toggleComponent = () => {
+  //   // toggle shown state
+  //   setIsShown(!isShown);
+  // };
 
   const changeFirstName = (e) => {
     setFirstName(e.target.value);
@@ -32,12 +37,22 @@ export const EditName = (props) => {
     return <div>{error}</div>;
   }
 
+  console.log(toggle.editName.active);
+
   return (
     <>
-      <button className="edit-button" onClick={toggleComponent}>
+      {/* <button className="edit-button" onClick={toggleComponent}> */}
+      <button
+        className="edit-button"
+        onClick={() =>
+          dispatch({
+            type: 'editName/useToggle',
+          })
+        }
+      >
         Edit Name
       </button>
-      {isShown && (
+      {toggle.editName.active && (
         <div className="edit-container">
           <div className="first-container">
             <input className="firstName" type={'text'} placeholder={props.firstName} onChange={changeFirstName}></input>
@@ -47,7 +62,15 @@ export const EditName = (props) => {
           </div>
           <div className="second-container">
             <input className="lastName" type={'text'} placeholder={props.lastName} onChange={changeLastName}></input>
-            <button type="button" onClick={toggleComponent}>
+            {/* <button type="button" onClick={toggleComponent}> */}
+            <button
+              type="button"
+              onClick={() =>
+                dispatch({
+                  type: 'editName/useToggle',
+                })
+              }
+            >
               Cancel
             </button>
           </div>

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './redux';
 
 import { Homepage } from './pages/Home';
 import { SignIn } from './pages/SignIn';
@@ -16,13 +18,15 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        {/* user/login sera accessible seulement si il n'y a pas de token actif et inversement*/}
-        {token ? <Route path="/user/profile" element={<User />} /> : <Route path="/user/login" element={<SignIn />} />}
-      </Routes>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          {/* user/login sera accessible seulement si il n'y a pas de token actif et inversement*/}
+          {token ? <Route path="/user/profile" element={<User />} /> : <Route path="/user/login" element={<SignIn />} />}
+        </Routes>
+      </div>
+    </Provider>
   );
 }
 
