@@ -31,6 +31,7 @@ export const loginSlice = createSlice({
     setLogin: (state, action) => {
       state.connected = true;
       state.token = action.payload;
+      // sets the Token item in local storage to the value of the payload property
       localStorage.setItem('Token', action.payload);
     },
     setLogout: (state) => {
