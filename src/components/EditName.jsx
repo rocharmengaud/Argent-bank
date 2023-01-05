@@ -7,7 +7,7 @@ import { updateProfileData } from '../services/apidata';
 import '../styles/editname.css';
 
 export const EditName = (props) => {
-  const toggle = useSelector((state) => state);
+  const toggle = useSelector((state) => state.editName);
   const dispatch = useDispatch();
 
   const [error, setError] = useState();
@@ -38,7 +38,7 @@ export const EditName = (props) => {
     return <div>{error}</div>;
   }
 
-  console.log(toggle.editName.active);
+  // console.log(toggle.active);
 
   return (
     <>
@@ -46,7 +46,7 @@ export const EditName = (props) => {
       <button className="edit-button" onClick={() => dispatch(createToggle())}>
         Edit Name
       </button>
-      {toggle.editName.active && (
+      {toggle.active && (
         <div className="edit-container">
           <div className="first-container">
             <input className="firstName" type={'text'} placeholder={props.firstName} onChange={changeFirstName}></input>

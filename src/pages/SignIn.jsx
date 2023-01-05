@@ -1,27 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { postUserLoginData } from '../services/apidata';
+import { useGetLoginApiQuery } from '../redux';
+import { useDispatch } from 'react-redux';
+import { setLogin } from '../redux';
+
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 
 import '../styles/signin.css';
 
 export const SignIn = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const login = async (e) => {
-    e.preventDefault();
-    await postUserLoginData(email, password);
-    // 'Token' est récupéré depuis le localStorage (voir getUserLoginData() dans apidata.js)
+  useEffect(() => {
     if (localStorage.getItem('Token')) {
       navigate('/user/profile');
+    }
+  }, [navigate]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let data = await postUserLoginData(email, password);
+    if (data.body) {
+      // le parametre de setLogin ici est le action.payload
+      dispatch(setLogin(data.body.token));
+      navigate('/user/profile');
     } else {
-      alert('Vos identifiants de connexion sont incorrects');
+      alert('error');
     }
   };
+
+  // const { loginApiQuery } = useGetLoginApiQuery();
+  // console.log(loginApiQuery);
+
+  // const login = async (e) => {
+  //   e.preventDefault();
+  //   await postUserLoginData(email, password);
+  //   // 'Token' est récupéré depuis le localStorage (voir getUserLoginData() dans apidata.js)
+  //   if (localStorage.getItem('Token')) {
+  //     navigate('/user/profile');
+  //   } else {
+  //     alert('Vos identifiants de connexion sont incorrects');
+  //   }
+  // };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -38,7 +64,7 @@ export const SignIn = () => {
         <section className="sign-in-content">
           <i className="fa fa-user-circle sign-in-icon"></i>
           <h1>Sign In</h1>
-          <form onSubmit={login}>
+          <form onSubmit={handleSubmit}>
             <div className="input-wrapper">
               <label htmlFor="username">Username</label>
               <input type="text" id="username" onChange={handleEmailChange} />

@@ -6,20 +6,25 @@ import { Footer } from '../components/Footer';
 import { getUserProfileData } from '../services/apidata';
 import { Loader } from '../components/Loader';
 import { EditName } from '../components/EditName';
+import { useSelector } from 'react-redux';
 
 export const User = () => {
   const [userData, setUserData] = useState();
   const [error, setError] = useState();
 
-  const fetchUserData = () => {
-    getUserProfileData()
+  const token = useSelector((state) => {
+    return state.login.token;
+  });
+
+  const fetchUserData = (token) => {
+    getUserProfileData(token)
       .then((data) => setUserData(data))
       .catch(setError);
   };
 
   React.useEffect(() => {
-    fetchUserData();
-  }, []);
+    fetchUserData(token);
+  }, [token]);
 
   // console.log(userData?.firstName);
 
