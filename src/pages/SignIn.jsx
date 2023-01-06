@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { postUserLoginData } from '../services/apidata';
-import { useGetLoginApiQuery } from '../redux';
 import { useDispatch } from 'react-redux';
 import { setLogin } from '../redux';
 
@@ -34,20 +33,6 @@ export const SignIn = () => {
       alert('error');
     }
   };
-
-  // const { loginApiQuery } = useGetLoginApiQuery();
-  // console.log(loginApiQuery);
-
-  // const login = async (e) => {
-  //   e.preventDefault();
-  //   await postUserLoginData(email, password);
-  //   // 'Token' est récupéré depuis le localStorage (voir getUserLoginData() dans apidata.js)
-  //   if (localStorage.getItem('Token')) {
-  //     navigate('/user/profile');
-  //   } else {
-  //     alert('Vos identifiants de connexion sont incorrects');
-  //   }
-  // };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);

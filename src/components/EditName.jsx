@@ -7,7 +7,7 @@ import { updateProfileData } from '../services/apidata';
 import '../styles/editname.css';
 
 export const EditName = (props) => {
-  const toggle = useSelector((state) => state.editName);
+  const toggle = useSelector((state) => state.toggle);
   const dispatch = useDispatch();
 
   const [error, setError] = useState();

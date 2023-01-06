@@ -1,8 +1,8 @@
 import { configureStore, createSlice, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery, setupListeners } from '@reduxjs/toolkit/query/react';
 
-export const editNameSlice = createSlice({
-  name: 'editName',
+export const toggleSlice = createSlice({
+  name: 'toggle',
   initialState: {
     active: false,
   },
@@ -16,7 +16,7 @@ export const editNameSlice = createSlice({
 
 export const createToggle = () => {
   return {
-    type: 'editName/setToggle',
+    type: 'toggle/setToggle',
   };
 };
 
@@ -47,6 +47,29 @@ export const loginSlice = createSlice({
 
 export const { setLogin, setLogout, setStayLoggedIn } = loginSlice.actions;
 export default loginSlice.reducer;
+
+export const userNameSlice = createSlice({
+  name: 'userName',
+  initialState: {
+    firstName: '',
+    lastName: '',
+  },
+
+  reducers: {
+    changeFirstName: (state, action) => {
+      return {
+        ...state,
+        firstName: action.payload,
+      };
+    },
+    changeLastName: (state, action) => {
+      return {
+        ...state,
+        lastName: action.payload,
+      };
+    },
+  },
+});
 
 // export const userLoginApi =
 //   // async (email, password) =>
