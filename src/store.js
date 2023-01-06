@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { loginSlice, toggleSlice } from './redux';
+import { loginSlice, toggleSlice, userNameSlice } from './redux';
 
 export const store = configureStore({
   // An object containing the reducers for the store.
@@ -7,5 +7,6 @@ export const store = configureStore({
   reducer: {
     login: loginSlice.reducer,
     toggle: toggleSlice.reducer,
+    userName: userNameSlice.reducer,
   },
 });

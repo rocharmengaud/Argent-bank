@@ -2,17 +2,30 @@ import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createToggle } from '../redux';
+import { userNameSlice } from '../redux';
 
 import { updateProfileData } from '../services/apidata';
 import '../styles/editname.css';
 
 export const EditName = (props) => {
-  const toggle = useSelector((state) => state.toggle);
   const dispatch = useDispatch();
 
+  const toggle = useSelector((state) => state.toggle);
+
+  const firstName = useSelector((state) => state.userName.firstName);
+  const lastName = useSelector((state) => state.userName.lastName);
+
+  const changeFirstName = (event) => {
+    dispatch(userNameSlice.actions.changeFirstName(event.target.value));
+  };
+
+  const changeLastName = (event) => {
+    dispatch(userNameSlice.actions.changeLastName(event.target.value));
+  };
+
   const [error, setError] = useState();
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+  // const [firstName, setFirstName] = useState();
+  // const [lastName, setLastName] = useState();
   // const [isShown, setIsShown] = useState(false);
 
   // const toggleComponent = () => {
@@ -20,13 +33,13 @@ export const EditName = (props) => {
   //   setIsShown(!isShown);
   // };
 
-  const changeFirstName = (e) => {
-    setFirstName(e.target.value);
-  };
+  // const changeFirstName = (e) => {
+  //   setFirstName(e.target.value);
+  // };
 
-  const changeLastName = (e) => {
-    setLastName(e.target.value);
-  };
+  // const changeLastName = (e) => {
+  //   setLastName(e.target.value);
+  // };
 
   const saveNames = () => {
     // Ici l'error va se set uniquement si on rencontre l'erreur 400 || 500, voir apiData.js
