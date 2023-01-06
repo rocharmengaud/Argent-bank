@@ -24,6 +24,7 @@ export const EditName = (props) => {
   };
 
   const [error, setError] = useState();
+
   // const [firstName, setFirstName] = useState();
   // const [lastName, setLastName] = useState();
   // const [isShown, setIsShown] = useState(false);
