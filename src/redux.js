@@ -14,6 +14,7 @@ export const toggleSlice = createSlice({
   },
 });
 
+// This is a way to directly dispatch this function on an event. Example in editName component.
 export const createToggle = () => {
   return {
     type: 'toggle/setToggle',

@@ -37,10 +37,10 @@ export const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let data = await postUserLoginData(email, password);
-    if (data.body) {
+    let loginData = await postUserLoginData(email, password);
+    if (loginData.body) {
       // le parametre de setLogin ici est le action.payload
-      dispatch(setLogin(data.body.token));
+      dispatch(setLogin(loginData.body.token));
       navigate('/user/profile');
     } else {
       alert('error');
