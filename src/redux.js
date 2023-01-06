@@ -71,28 +71,28 @@ export const userNameSlice = createSlice({
   },
 });
 
-// export const credentialsSlice = createSlice({
-//   name: 'credentials',
-//   initialState: {
-//     email: '',
-//     password: '',
-//   },
+export const credentialsSlice = createSlice({
+  name: 'credentials',
+  initialState: {
+    email: '',
+    password: '',
+  },
 
-//   reducers: {
-//     setEmail: (state, action) => {
-//       return {
-//         ...state,
-//         email: action.payload,
-//       };
-//     },
-//     setPassword: (state, action) => {
-//       return {
-//         ...state,
-//         password: action.payload,
-//       };
-//     },
-//   },
-// });
+  reducers: {
+    setEmail: (state, action) => {
+      return {
+        ...state,
+        email: action.payload,
+      };
+    },
+    setPassword: (state, action) => {
+      return {
+        ...state,
+        password: action.payload,
+      };
+    },
+  },
+});
 
 // export const userLoginApi =
 //   // async (email, password) =>

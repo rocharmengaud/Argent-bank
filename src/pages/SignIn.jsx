@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { postUserLoginData } from '../services/apidata';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setLogin } from '../redux';
+import { credentialsSlice } from '../redux';
 
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
@@ -13,8 +14,20 @@ import '../styles/signin.css';
 export const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+
+  // const [email, setEmail] = useState();
+  // const [password, setPassword] = useState();
+
+  // const handleEmailChange = (e) => {
+  //   setEmail(e.target.value);
+  // };
+
+  // const handlePasswordChange = (e) => {
+  //   setPassword(e.target.value);
+  // };
+
+  const email = useSelector((state) => state.credentials.email);
+  const password = useSelector((state) => state.credentials.password);
 
   useEffect(() => {
     if (localStorage.getItem('Token')) {
@@ -34,12 +47,12 @@ export const SignIn = () => {
     }
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleEmailChange = (event) => {
+    dispatch(credentialsSlice.actions.setEmail(event.target.value));
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handlePasswordChange = (event) => {
+    dispatch(credentialsSlice.actions.setPassword(event.target.value));
   };
 
   return (
