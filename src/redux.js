@@ -95,6 +95,27 @@ export const credentialsSlice = createSlice({
   },
 });
 
+export const userDataSlice = createSlice({
+  name: 'userData',
+  initialState: {},
+
+  reducers: {
+    fetchUserDataSuccess: (state, action) => action.payload,
+    fetchUserDataError: (state, action) => {
+      return state;
+    },
+  },
+});
+
+// export const fetchUserDataSuccess = (userData) => ({
+//   type: 'FETCH_USER_DATA_SUCCESS',
+//   payload: userData,
+// });
+
+// export const fetchUserDataError = () => ({
+//   type: 'FETCH_USER_DATA_ERROR',
+// });
+
 // export const userLoginApi =
 //   // async (email, password) =>
 //   createApi({

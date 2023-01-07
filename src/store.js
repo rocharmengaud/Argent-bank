@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { credentialsSlice, loginSlice, toggleSlice, userNameSlice } from './redux';
+import { credentialsSlice, loginSlice, toggleSlice, userDataSlice, userNameSlice } from './redux';
 
 export const store = configureStore({
   // An object containing the reducers for the store.
@@ -9,5 +9,6 @@ export const store = configureStore({
     toggle: toggleSlice.reducer,
     userName: userNameSlice.reducer,
     credentials: credentialsSlice.reducer,
+    userData: userDataSlice.reducer,
   },
 });

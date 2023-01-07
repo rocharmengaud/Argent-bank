@@ -44,8 +44,10 @@ export const EditName = (props) => {
 
   const saveNames = () => {
     // Ici l'error va se set uniquement si on rencontre l'erreur 400 || 500, voir apiData.js
-    updateProfileData(firstName, lastName).then((error) => setError(error));
-    props.onSave();
+    updateProfileData(firstName, lastName)
+      // ici on appelle le onSave() uniquement aprés que l'appel api updateProfileData sois terminé
+      .then(() => props.onSave())
+      .catch((error) => setError(error));
   };
 
   if (error) {
