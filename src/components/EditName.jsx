@@ -11,7 +11,6 @@ export const EditName = (props) => {
   const dispatch = useDispatch();
 
   const toggle = useSelector((state) => state.toggle);
-
   const firstName = useSelector((state) => state.userName.firstName);
   const lastName = useSelector((state) => state.userName.lastName);
 
@@ -53,8 +52,6 @@ export const EditName = (props) => {
   if (error) {
     return <div>{error}</div>;
   }
-
-  // console.log(toggle.active);
 
   return (
     <>

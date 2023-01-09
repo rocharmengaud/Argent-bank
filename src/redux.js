@@ -108,3 +108,5 @@ export const userDataSlice = createSlice({
     },
   },
 });
+
+export const { fetchUserDataSuccess, fetchUserDataError } = userDataSlice.actions;
