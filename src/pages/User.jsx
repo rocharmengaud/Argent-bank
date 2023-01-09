@@ -7,7 +7,7 @@ import { getUserProfileData } from '../services/apidata';
 import { Loader } from '../components/Loader';
 import { EditName } from '../components/EditName';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchUserDataError, fetchUserDataSuccess } from '../redux';
+import { fetchUserDataError, fetchUserDataSuccess } from '../services/userDataSlice';
 
 export const User = () => {
   const dispatch = useDispatch();

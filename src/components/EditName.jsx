@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { createToggle } from '../redux';
-import { changeFirstName, changeLastName } from '../redux';
+import { createToggle } from '../services/toggleSlice';
+import { changeFirstName, changeLastName } from '../services/userNameSlice';
 
 import { updateProfileData } from '../services/apidata';
 import '../styles/editname.css';

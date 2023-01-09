@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { setLogout, setStayLoggedIn } from './redux';
+import { setLogout, setStayLoggedIn } from './services/loginSlice';
 
 import { Homepage } from './pages/Home';
 import { SignIn } from './pages/SignIn';

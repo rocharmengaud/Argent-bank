@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { postUserLoginData } from '../services/apidata';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLogin } from '../redux';
-import { setEmail, setPassword } from '../redux';
+import { setEmail, setPassword } from '../services/credentialsSlice';
+import { setLogin } from '../services/loginSlice';
 
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';

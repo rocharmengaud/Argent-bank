@@ -1,5 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { credentialsSlice, loginSlice, toggleSlice, userDataSlice, userNameSlice } from './redux';
+import { userDataSlice } from './services/userDataSlice';
+import { toggleSlice } from './services/toggleSlice';
+import { loginSlice } from './services/loginSlice';
+import { userNameSlice } from './services/userNameSlice';
+import { credentialsSlice } from './services/credentialsSlice';
 
 export const store = configureStore({
   // An object containing the reducers for the store.
