@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { postUserLoginData } from '../services/apidata';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLogin } from '../redux';
-import { credentialsSlice } from '../redux';
+import { setEmail, setPassword } from '../redux';
 
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
@@ -48,11 +48,11 @@ export const SignIn = () => {
   };
 
   const handleEmailChange = (event) => {
-    dispatch(credentialsSlice.actions.setEmail(event.target.value));
+    dispatch(setEmail(event.target.value));
   };
 
   const handlePasswordChange = (event) => {
-    dispatch(credentialsSlice.actions.setPassword(event.target.value));
+    dispatch(setPassword(event.target.value));
   };
 
   return (

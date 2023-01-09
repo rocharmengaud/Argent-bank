@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createToggle } from '../redux';
-import { userNameSlice } from '../redux';
+import { changeFirstName, changeLastName } from '../redux';
 
 import { updateProfileData } from '../services/apidata';
 import '../styles/editname.css';
@@ -15,12 +15,12 @@ export const EditName = (props) => {
   const firstName = useSelector((state) => state.userName.firstName);
   const lastName = useSelector((state) => state.userName.lastName);
 
-  const changeFirstName = (event) => {
-    dispatch(userNameSlice.actions.changeFirstName(event.target.value));
+  const handleChangeFirstName = (event) => {
+    dispatch(changeFirstName(event.target.value));
   };
 
-  const changeLastName = (event) => {
-    dispatch(userNameSlice.actions.changeLastName(event.target.value));
+  const handleChangeLastName = (event) => {
+    dispatch(changeLastName(event.target.value));
   };
 
   const [error, setError] = useState();
@@ -65,13 +65,13 @@ export const EditName = (props) => {
       {toggle.active && (
         <div className="edit-container">
           <div className="first-container">
-            <input className="firstName" type={'text'} placeholder={props.firstName} onChange={changeFirstName}></input>
+            <input className="firstName" type={'text'} placeholder={props.firstName} onChange={handleChangeFirstName}></input>
             <button type="button" onClick={saveNames}>
               Save
             </button>
           </div>
           <div className="second-container">
-            <input className="lastName" type={'text'} placeholder={props.lastName} onChange={changeLastName}></input>
+            <input className="lastName" type={'text'} placeholder={props.lastName} onChange={handleChangeLastName}></input>
             {/* <button type="button" onClick={toggleComponent}> */}
             <button type="button" onClick={() => dispatch(createToggle())}>
               Cancel

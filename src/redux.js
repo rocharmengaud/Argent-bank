@@ -1,5 +1,4 @@
-import { configureStore, createSlice, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { createApi, fetchBaseQuery, setupListeners } from '@reduxjs/toolkit/query/react';
+import { createSlice } from '@reduxjs/toolkit';
 
 export const toggleSlice = createSlice({
   name: 'toggle',
@@ -47,7 +46,6 @@ export const loginSlice = createSlice({
 });
 
 export const { setLogin, setLogout, setStayLoggedIn } = loginSlice.actions;
-export default loginSlice.reducer;
 
 export const userNameSlice = createSlice({
   name: 'userName',
@@ -72,6 +70,8 @@ export const userNameSlice = createSlice({
   },
 });
 
+export const { changeFirstName, changeLastName } = userNameSlice.actions;
+
 export const credentialsSlice = createSlice({
   name: 'credentials',
   initialState: {
@@ -95,6 +95,8 @@ export const credentialsSlice = createSlice({
   },
 });
 
+export const { setEmail, setPassword } = credentialsSlice.actions;
+
 export const userDataSlice = createSlice({
   name: 'userData',
   initialState: {},
@@ -106,45 +108,3 @@ export const userDataSlice = createSlice({
     },
   },
 });
-
-// export const fetchUserDataSuccess = (userData) => ({
-//   type: 'FETCH_USER_DATA_SUCCESS',
-//   payload: userData,
-// });
-
-// export const fetchUserDataError = () => ({
-//   type: 'FETCH_USER_DATA_ERROR',
-// });
-
-// export const userLoginApi =
-//   // async (email, password) =>
-//   createApi({
-//     reducerPath: 'userLoginApi',
-//     baseQuery: fetchBaseQuery({
-//       baseUrl: 'http://localhost:3001/api/v1',
-//     }),
-//     endpoints: (builder) => ({
-//       getLoginApi: builder.query({
-//         query: (email, password) => ({
-//           url: '/user/login',
-//           method: 'POST',
-//           body: JSON.stringify({
-//             email: email,
-//             password: password,
-//           }),
-//         }),
-//       }),
-//     }),
-//   });
-
-// export const { useGetLoginApiQuery } = userLoginApi;
-
-// export const store = configureStore({
-//   reducer: {
-//     editName: editNameSlice.reducer,
-//     [userLoginApi.reducerPath]: userLoginApi.reducer,
-//   },
-//   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userLoginApi.middleware),
-// });
-
-// setupListeners(store.dispatch);
