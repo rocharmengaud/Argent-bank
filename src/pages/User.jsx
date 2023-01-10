@@ -1,13 +1,13 @@
 import React from 'react';
-// import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { getUserProfileData } from '../services/apidata';
+import { fetchUserDataError, fetchUserDataSuccess } from '../services/userDataSlice';
 
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
-import { getUserProfileData } from '../services/apidata';
 import { Loader } from '../components/Loader';
 import { EditName } from '../components/EditName';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchUserDataError, fetchUserDataSuccess } from '../services/userDataSlice';
 
 export const User = () => {
   const dispatch = useDispatch();

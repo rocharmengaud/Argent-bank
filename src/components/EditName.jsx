@@ -1,10 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { createToggle } from '../services/toggleSlice';
 import { changeFirstName, changeLastName } from '../services/userNameSlice';
-
 import { updateProfileData } from '../services/apidata';
+
 import '../styles/editname.css';
 
 export const EditName = (props) => {

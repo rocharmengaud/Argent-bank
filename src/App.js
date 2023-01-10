@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { setLogout, setStayLoggedIn } from './services/loginSlice';
 
 import { Homepage } from './pages/Home';
 import { SignIn } from './pages/SignIn';
 import { User } from './pages/User';
-import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 
 const App = () => {
   const dispatch = useDispatch();

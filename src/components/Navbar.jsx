@@ -1,6 +1,4 @@
-import '../styles/navbar.css';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import ArgentBankLogo from '../assets/argentBankLogo.png';
 import '../styles/navbar.css';

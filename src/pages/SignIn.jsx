@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { postUserLoginData } from '../services/apidata';
-import { useDispatch, useSelector } from 'react-redux';
 import { setEmail, setPassword } from '../services/credentialsSlice';
 import { setLogin } from '../services/loginSlice';
 
