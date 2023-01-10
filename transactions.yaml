@@ -103,7 +103,7 @@ paths:
           required: true
         - in: body
           name: body
-          description: Update user profile attributes
+          description: Update transaction attributes
           required: true
           schema:
             $ref: '#/definitions/Transaction'
@@ -111,7 +111,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: User profile retrieved successully
+          description: Transaction retrieved successully
           schema:
             $ref: '#/definitions/TransactionsResponse'
         '400':
