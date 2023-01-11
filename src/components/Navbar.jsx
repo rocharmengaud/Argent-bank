@@ -1,16 +1,20 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ArgentBankLogo from '../assets/argentBankLogo.png';
+import { setLogout } from '../services/loginSlice';
 import '../styles/navbar.css';
 
 export const Navbar = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const logOut = useSelector((state) => state.login.connected);
 
   const signOut = () => {
-    localStorage.clear();
     navigate('/user/login');
     // permet de mettre à jour le Token dans App.js
-    window.dispatchEvent(new Event('storage'));
+    // window.dispatchEvent(new Event('storage'));
+    dispatch(setLogout(logOut));
   };
 
   const signIn = () => {

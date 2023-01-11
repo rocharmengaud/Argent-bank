@@ -17,6 +17,7 @@ export const loginSlice = createSlice({
     setLogout: (state) => {
       state.connected = false;
       state.token = '';
+      localStorage.clear();
     },
     setStayLoggedIn: (state) => {
       state.connected = true;
