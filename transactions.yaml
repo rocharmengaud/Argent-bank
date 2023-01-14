@@ -77,6 +77,12 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+        - in: body
+          name: body
+          description: Transaction ID
+          required: true
+          schema:
+            $ref: '#/definitions/TransactionID'
       produces:
         - application/json
       responses:
@@ -174,3 +180,8 @@ definitions:
         type: string
       note:
         type: string
+  TransactionID:
+    properties:
+      id:
+        type: number
+        description: transaction id

@@ -7,6 +7,7 @@ import { setLogout, setStayLoggedIn } from './services/loginSlice';
 import { Homepage } from './pages/Home';
 import { SignIn } from './pages/SignIn';
 import { User } from './pages/User';
+import Error404 from './pages/404';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const App = () => {
         {/* setting up a route that can only be accessed by a logged-in user. 
         If the user is not logged in, they will be redirected to the /user/login route. */}
         <Route path="/user/profile" element={isLogged ? <User /> : <Navigate to="/user/login" />} />
+        <Route path="/*" element={<Error404 />} />
       </Routes>
     </div>
   );
